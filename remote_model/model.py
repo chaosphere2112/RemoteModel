@@ -27,10 +27,8 @@ class AsyncList(object):
             self.retrieve_next()
             if self._link is None:
                 break
-        else:
-            return self._backing[ind]
 
-        self._backing[ind]
+        return self._backing[ind]
 
     def retrieve_next(self):
         if self._link is None:
