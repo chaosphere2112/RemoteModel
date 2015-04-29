@@ -1,5 +1,6 @@
 import requests
 
+
 # Use to grab paginated data as needed
 class AsyncList(object):
     def __init__(self, data, link, requester, headers):
@@ -44,6 +45,7 @@ class AsyncList(object):
             self._backing.extend(next_section)
             self._link = None
 
+
 class AsyncRequest(object):
     def __init__(self, retrieved=None):
         self.json = {}
@@ -68,7 +70,7 @@ class AsyncRequest(object):
     def __get__(self, instance, owner):
         url = self.urls[instance]
         json = self.get_url(url, headers=instance.get_headers())
-        
+
         # allow the owner object to do operations on the JSON object
         try:
             instance.parse(json, self.cache)
@@ -93,6 +95,7 @@ class AsyncRequest(object):
         except AttributeError:
             self.urls[instance] = value
 
+
 class RemoteModel(object):
 
     data = AsyncRequest()
@@ -104,7 +107,6 @@ class RemoteModel(object):
         self.data = url
         self._url = url
 
-    
     def __geturl(self):
         return self._url
 

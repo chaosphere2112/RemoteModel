@@ -4,14 +4,18 @@ from remote_model import RemoteModel
 
 github_key = None
 
+
 def get_key():
     return github_key
+
 
 def set_key(value):
     global github_key
     github_key = value
 
+
 github_api_url = "api.github.com"
+
 
 class GithubModel(RemoteModel):
     def get_headers(self):
